@@ -787,7 +787,41 @@ p {
   100% { filter: brightness(1); }
 }
 
+/* WATERING INTERACTION */
 
+.watering-area {
+  margin: 8px auto 18px;
+  text-align: center;
+}
+
+.watering-area p {
+  font-size: 13px;
+  color: #a77d96;
+  margin-bottom: 12px;
+}
+
+#waterBtn {
+  transition: .3s ease;
+}
+
+#waterBtn:hover {
+  transform: translateY(-3px);
+}
+
+#waterBtn.watered {
+  background: #a9b99b;
+  color: white;
+}
+
+.bouquet.watered .flower {
+  animation: flowerBloom .8s ease both;
+}
+
+@keyframes flowerBloom {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.25) drop-shadow(0 0 10px #f3c6d8); }
+  100% { filter: brightness(1); }
+}
 
 /* LOVE LETTER */
 
