@@ -1058,8 +1058,19 @@ Spotify controls are inside the player.    </div>
    </div>
   </div>
 
-  <div class="button-row">
-   <button class="btn" onclick="showScreen('letter')">
+  <div class="watering-area">
+  <p id="waterCount">Your bouquet could use a little love. ♡</p>
+
+  <button class="btn secondary" id="waterBtn" onclick="waterFlowers()">
+    <span>💧</span> Water the flowers
+  </button>
+</div>
+
+<div class="button-row">
+  <button class="btn" id="letterBtn" onclick="showScreen('letter')">
+    One last thing... ♡ →
+  </button>
+</div>
     One last thing... ♡ →
    </button>
   </div>
