@@ -758,8 +758,7 @@ p {
 
     <div class="hint">
      Tap a song on the left to play it.
-     YouTube controls are inside the player.
-    </div>
+Spotify controls are inside the player.    </div>
 
    </div>
   </div>
@@ -926,42 +925,59 @@ Your favourite headache &lt;3</p>
 </section>
 
 </main>
-
-
 <script>
-
 const songs = [
  {
-  title:"Najeek",
-  artist:"Bartika Eam Rai",
-  id:"AMRGmAh2NTk",
-  note:"A little song for the moments when someone feels close, even from far away."
+  title: "Najeek",
+  artist: "Bartika Eam Rai",
+  note: "A little song for the moments when someone feels close, even from far away."
  },
  {
-  title:"Chemtrails Over the Country Club",
-  artist:"Lana Del Rey",
-  id:"vBHild0PiTE",
-  note:"For dreamy drives, daydreams, and a little bit of cinematic romance."
+  title: "Chemtrails Over the Country Club",
+  artist: "Lana Del Rey",
+  note: "For dreamy drives, daydreams, and a little bit of cinematic romance."
  },
  {
-  title:"About You",
-  artist:"The 1975",
-  id:"tGv7CUutzqU",
-  note:"Some people just stay on your mind. This one felt right here."
+  title: "About You",
+  artist: "The 1975",
+  note: "Some people just stay on your mind. This one felt right here."
  },
  {
-  title:"Iris",
-  artist:"The Goo Goo Dolls",
-  id:"NwFVSclD_uc",
-  note:"Because some feelings are impossible to put into words. ♡"
+  title: "Iris",
+  artist: "The Goo Goo Dolls",
+  note: "Because some feelings are impossible to put into words. ♡"
  },
  {
-  title:"Lover",
-  artist:"Taylor Swift",
-  id:"-BjZmE2gtdo",
-  note:"Saving this one for last. Obviously. ♡"
+  title: "Lover",
+  artist: "Taylor Swift",
+  note: "Saving this one for last. Obviously. ♡"
  }
 ];
+
+const spotifyTracks = [
+ "6darP2PR5PxDHrQgCRO1Xo",
+ "6Qyc6fS4DsZjB2mRW9DsQs",
+ "3hEfpBHxgieRLz4t3kLNEg",
+ "7bPWdJgx8vek7S5i5yAtvG",
+ "1dGr1c8CrMLDpV6mPbImSI"
+];
+
+function playSong(index) {
+ const song = songs[index];
+
+ document.querySelectorAll('.track').forEach((track, i) => {
+  track.classList.toggle('selected', i === index);
+ });
+
+ document.getElementById('nowTitle').textContent = song.title;
+ document.getElementById('songNote').textContent = song.note;
+
+ const emojis = ['🌷', '☁️', '🌙', '✨', '💗'];
+ document.getElementById('playerArt').textContent = emojis[index];
+
+ document.getElementById('spotifyPlayer').src =
+  `https://open.spotify.com/embed/track/${spotifyTracks[index]}?utm_source=generator&theme=0`;
+}
 
 function showScreen(id) {
  document.querySelectorAll('.screen').forEach(screen => {
@@ -969,8 +985,7 @@ function showScreen(id) {
  });
 
  document.getElementById(id).classList.add('active');
-
- window.scrollTo({top:0,behavior:'smooth'});
+ window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
 function startQuiz() {
@@ -978,7 +993,6 @@ function startQuiz() {
 }
 
 function answerQuiz(choice) {
-
  const result = document.getElementById('quizResult');
 
  result.textContent = choice === 'me'
@@ -988,55 +1002,31 @@ function answerQuiz(choice) {
  document.getElementById('quizContinue').style.display = 'inline-block';
 }
 
-function playSong(index) {
-
- const song = songs[index];
-
- document.querySelectorAll('.track').forEach((track,i) => {
-  track.classList.toggle('selected',i === index);
- });
-
- document.getElementById('nowTitle').textContent = song.title;
- document.getElementById('songNote').textContent = song.note;
-
- const emojis = ['🌷','☁️','🌙','✨','💗'];
-
- document.getElementById('playerArt').textContent = emojis[index];
-}
-
 let water = 0;
 
 function waterFlowers() {
-
- if(water < 3) {
-  water++;
- }
+ if (water < 3) water++;
 
  document.getElementById('waterCount').textContent =
   water < 3
    ? `Water them 3 times to help them bloom · ${water} / 3`
    : "Look what you did. They're blooming just for you. ♡";
 
- if(water >= 3) {
-
+ if (water >= 3) {
   document.getElementById('bouquet').classList.add('bloomed');
-
   document.getElementById('waterBtn').textContent = "You did it! ♡";
-
   document.getElementById('waterBtn').disabled = true;
-
   document.getElementById('letterBtn').style.display = 'inline-block';
  }
 }
 
 function openLetter() {
-
  document.getElementById('letterContent').classList.add('show');
-
  document.getElementById('openLetterBtn').style.display = 'none';
 }
+</scripts>
 
-</script>
+
 
 </body>
 </html>
