@@ -1142,7 +1142,7 @@ Spotify controls are inside the player.    </div>
   <div class="seal">♥</div>
 
   <button class="btn" id="openLetterBtn" onclick="openLetter()">
-   Break the seal
+   Open your letter ♡
   </button>
 
   <div class="hidden-letter" id="letterContent">
@@ -1266,9 +1266,9 @@ function waterFlowers() {
 
   water++;
 
-  bouquet.classList.remove('watered');
-  void bouquet.offsetWidth;
+  if (water === 1) {
   bouquet.classList.add('watered');
+}
 
   if (water < 3) {
     count.textContent = `A little more love... ${water}/3 💧`;
