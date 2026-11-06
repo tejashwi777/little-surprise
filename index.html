@@ -1,0 +1,1035 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Something For You ♡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ink:#554653;
+  --muted:#907e8c;
+  --pink:#f4cbd8;
+  --rose:#d98ca8;
+  --cream:#fffaf6;
+  --line:#f0e4e9;
+}
+
+* { box-sizing:border-box; }
+
+body {
+  margin:0;
+  min-height:100vh;
+  color:var(--ink);
+  font-family:'DM Sans',sans-serif;
+  background:
+    radial-gradient(circle at 12% 15%,#f7dce6 0,transparent 30%),
+    radial-gradient(circle at 88% 80%,#e3ddf5 0,transparent 32%),
+    linear-gradient(135deg,#fff9f5,#fbf2f7 55%,#f5f0fb);
+  overflow-x:hidden;
+}
+
+body:before {
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.32;
+  background-image:radial-gradient(#d7a9bd 1px,transparent 1px);
+  background-size:25px 25px;
+}
+
+.floaties span {
+  position:fixed;
+  z-index:0;
+  pointer-events:none;
+  animation:drift 8s ease-in-out infinite;
+  color:#d99db7;
+  opacity:.55;
+}
+
+.floaties span:nth-child(1){top:12%;left:7%;font-size:20px}
+.floaties span:nth-child(2){top:22%;right:8%;font-size:14px;animation-delay:2s}
+.floaties span:nth-child(3){bottom:15%;left:12%;font-size:17px;animation-delay:4s}
+.floaties span:nth-child(4){bottom:22%;right:9%;font-size:22px;animation-delay:1s}
+
+@keyframes drift {
+  50% { transform:translateY(-16px) rotate(12deg); }
+}
+
+main {
+  position:relative;
+  z-index:1;
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  padding:30px 16px;
+}
+
+.screen {
+  display:none;
+  width:min(880px,100%);
+  animation:appear .65s ease both;
+}
+
+.screen.active { display:block; }
+
+@keyframes appear {
+  from {opacity:0;transform:translateY(14px)}
+  to {opacity:1;transform:translateY(0)}
+}
+
+.card {
+  background:rgba(255,252,250,.82);
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 24px 80px #9f7d9120,0 4px 18px #b18ba014;
+  border-radius:30px;
+  padding:clamp(25px,5vw,54px);
+  backdrop-filter:blur(14px);
+  text-align:center;
+}
+
+.eyebrow {
+  font-size:11px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#b27f98;
+  font-weight:700;
+}
+
+h1,h2 {
+  font-family:'Playfair Display',serif;
+  font-weight:500;
+  line-height:1.13;
+  margin:13px 0;
+  color:#654f61;
+}
+
+h1 {font-size:clamp(42px,7vw,68px)}
+h2 {font-size:clamp(34px,5vw,48px)}
+h1 em,h2 em {color:#c17f9d;font-weight:500}
+
+p {
+  line-height:1.8;
+  color:var(--muted);
+  font-size:15px;
+}
+
+.big-envelope {
+  width:160px;
+  height:118px;
+  margin:34px auto 24px;
+  position:relative;
+  cursor:pointer;
+  filter:drop-shadow(0 12px 12px #bd8fa633);
+  transition:.3s;
+}
+
+.big-envelope:hover {
+  transform:translateY(-6px) rotate(-2deg);
+}
+
+.env-body {
+  position:absolute;
+  inset:15px 0 0;
+  background:#eab7ca;
+  border-radius:8px 8px 15px 15px;
+}
+
+.env-flap {
+  position:absolute;
+  top:15px;
+  left:0;
+  width:0;
+  height:0;
+  border-left:80px solid transparent;
+  border-right:80px solid transparent;
+  border-top:62px solid #d991ae;
+  transform-origin:top;
+  z-index:2;
+}
+
+.env-heart {
+  position:absolute;
+  z-index:3;
+  top:52px;
+  left:65px;
+  font-size:30px;
+  color:#fff8f5;
+}
+
+.btn {
+  border:0;
+  border-radius:999px;
+  padding:14px 24px;
+  background:#bd809d;
+  color:white;
+  font:600 13px 'DM Sans';
+  letter-spacing:.04em;
+  cursor:pointer;
+  box-shadow:0 8px 20px #bd809d35;
+  transition:.2s;
+}
+
+.btn:hover {
+  transform:translateY(-2px);
+  box-shadow:0 12px 24px #bd809d45;
+}
+
+.btn.secondary {
+  background:#f5e7ed;
+  color:#9e6f89;
+  box-shadow:none;
+}
+
+.btn.ghost {
+  background:transparent;
+  border:1px solid #e8cbd8;
+  color:#a5748d;
+  box-shadow:none;
+}
+
+.button-row {
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:23px;
+}
+
+.tiny {
+  font-size:12px;
+  color:#b39ba9;
+  margin-top:16px;
+}
+
+.quiz-options {
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin:25px 0;
+}
+
+.quiz-result {
+  min-height:28px;
+  color:#b16f91;
+  font-weight:600;
+  font-size:14px;
+}
+
+.playlist-layout {
+  display:grid;
+  grid-template-columns:1fr 1.05fr;
+  gap:25px;
+  text-align:left;
+  margin-top:28px;
+}
+
+.track-list {
+  display:grid;
+  gap:9px;
+  align-content:start;
+}
+
+.track {
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-align:left;
+  padding:13px 14px;
+  border:1px solid var(--line);
+  border-radius:17px;
+  background:#fffaf9;
+  color:var(--ink);
+  cursor:pointer;
+  transition:.2s;
+}
+
+.track:hover,.track.selected {
+  border-color:#d8a2b9;
+  background:#fff3f7;
+  transform:translateX(3px);
+}
+
+.track-num {
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  border-radius:10px;
+  background:#f5e5ed;
+  color:#b27c97;
+  font-size:12px;
+}
+
+.track strong {
+  display:block;
+  font-size:13px;
+  font-weight:600;
+}
+
+.track small {
+  color:#a58e9d;
+  font-size:11px;
+}
+
+.track .play {
+  margin-left:auto;
+  color:#bd809d;
+}
+
+.player {
+  background:linear-gradient(145deg,#f5e6ed,#eee8f7);
+  border-radius:24px;
+  padding:17px;
+}
+
+.player-art {
+  height:145px;
+  border-radius:17px;
+  display:grid;
+  place-items:center;
+  background:radial-gradient(circle,#fff8f8,#e7d8eb);
+  font-size:56px;
+  position:relative;
+  overflow:hidden;
+}
+
+.player-art:after {
+  content:"";
+  position:absolute;
+  width:170px;
+  height:170px;
+  border:1px solid #fff9;
+  border-radius:50%;
+  box-shadow:0 0 0 18px #fff3,0 0 0 36px #fff2;
+}
+
+.now-label {
+  font-size:10px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#a98a9d;
+  margin-top:17px;
+}
+
+.now-title {
+  font:22px 'Playfair Display';
+  margin:5px 0;
+}
+
+.player-note {
+  font-size:12px;
+  line-height:1.6;
+  margin:6px 0 12px;
+}
+
+iframe {
+  width:100%;
+  height:155px;
+  border:0;
+  border-radius:13px;
+  background:#eee;
+}
+
+.hint {
+  font-size:11px;
+  color:#a58e9d;
+  line-height:1.6;
+}
+
+.section-foot {
+  margin-top:28px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.progress {
+  font-size:11px;
+  letter-spacing:.12em;
+  color:#b18ba0;
+}
+
+/* LILY BOUQUET */
+
+.bouquet-wrap {
+  margin:15px auto 5px;
+  max-width:500px;
+}
+
+.bouquet {
+  height:285px;
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  overflow:hidden;
+}
+
+.stems {
+  position:absolute;
+  bottom:16px;
+  width:230px;
+  height:220px;
+}
+
+.stem {
+  position:absolute;
+  bottom:0;
+  left:50%;
+  width:4px;
+  height:205px;
+  background:linear-gradient(#79a17c,#557d68);
+  border-radius:5px;
+  transform-origin:bottom;
+}
+
+.stem:nth-child(1){transform:rotate(-28deg);height:174px}
+.stem:nth-child(2){transform:rotate(-14deg);height:198px}
+.stem:nth-child(3){transform:rotate(0);height:210px}
+.stem:nth-child(4){transform:rotate(15deg);height:194px}
+.stem:nth-child(5){transform:rotate(29deg);height:170px}
+
+.leaf {
+  position:absolute;
+  width:47px;
+  height:20px;
+  background:linear-gradient(90deg,#739a7a,#b0c6a0);
+  border-radius:100% 0 100% 0;
+  bottom:70px;
+  left:calc(50% - 48px);
+  transform:rotate(-24deg);
+}
+
+.leaf.l2 {
+  left:calc(50% + 2px);
+  bottom:102px;
+  transform:rotate(25deg) scaleX(-1);
+}
+
+.leaf.l3 {
+  left:calc(50% - 34px);
+  bottom:139px;
+  transform:rotate(-12deg);
+}
+
+.flower {
+  position:absolute;
+  bottom:190px;
+  left:50%;
+  width:78px;
+  height:78px;
+  transform:translateX(-50%) scale(.12) rotate(-25deg);
+  opacity:.25;
+  transition:transform 1s cubic-bezier(.2,.8,.2,1),opacity .8s;
+}
+
+.flower.f1{margin-left:-94px;bottom:145px;scale:.82}
+.flower.f2{margin-left:-48px;bottom:190px;scale:.9}
+.flower.f3{margin-left:0;bottom:205px;scale:1}
+.flower.f4{margin-left:48px;bottom:185px;scale:.9}
+.flower.f5{margin-left:91px;bottom:145px;scale:.8}
+
+.petal {
+  position:absolute;
+  left:29px;
+  top:0;
+  width:21px;
+  height:43px;
+  background:linear-gradient(90deg,#fff,#f4eaf4 75%,#e9d8ed);
+  border:1px solid #e6d5e8;
+  border-radius:70% 70% 45% 45%;
+  transform-origin:50% 100%;
+  box-shadow:inset 0 -4px 7px #d9c3dc55;
+}
+
+.petal:nth-child(1){transform:rotate(0deg)}
+.petal:nth-child(2){transform:rotate(60deg)}
+.petal:nth-child(3){transform:rotate(120deg)}
+.petal:nth-child(4){transform:rotate(180deg)}
+.petal:nth-child(5){transform:rotate(240deg)}
+.petal:nth-child(6){transform:rotate(300deg)}
+
+.flower:after {
+  content:"";
+  position:absolute;
+  width:13px;
+  height:13px;
+  border-radius:50%;
+  background:#d7ae67;
+  left:33px;
+  top:31px;
+  box-shadow:0 0 0 3px #f4e1ad;
+}
+
+.bloomed .flower {
+  transform:translateX(-50%) scale(1) rotate(0);
+  opacity:1;
+}
+
+.wrap {
+  position:absolute;
+  bottom:0;
+  width:230px;
+  height:105px;
+  background:linear-gradient(110deg,#e9c4d3,#fff0f2 50%,#dfb2c7);
+  clip-path:polygon(12% 0,88% 0,100% 100%,0 100%);
+  border-radius:8px;
+}
+
+.ribbon {
+  position:absolute;
+  bottom:32px;
+  width:245px;
+  height:12px;
+  background:#c786a4;
+  transform:rotate(-4deg);
+  border-radius:20px;
+}
+
+.bow {
+  position:absolute;
+  bottom:30px;
+  left:50%;
+  width:45px;
+  height:25px;
+  transform:translateX(-50%);
+  border:6px solid #bd7898;
+  border-radius:50% 50% 10% 50%;
+  z-index:3;
+}
+
+.bow:after {
+  content:"";
+  position:absolute;
+  left:18px;
+  top:-6px;
+  width:39px;
+  height:25px;
+  border:6px solid #bd7898;
+  border-radius:50% 50% 50% 10%;
+  transform:rotate(18deg);
+}
+
+.water-count {
+  font-size:12px;
+  color:#a78d9d;
+  margin-top:10px;
+}
+
+/* LOVE LETTER */
+
+.letter-card {
+  max-width:620px;
+  margin:25px auto 0;
+  text-align:left;
+  background:#fffaf5;
+  border:1px solid #f1e3df;
+  border-radius:8px;
+  padding:35px;
+  box-shadow:0 12px 35px #9f7d9115;
+  position:relative;
+}
+
+.letter-card:before {
+  content:"";
+  position:absolute;
+  inset:9px;
+  border:1px solid #f2e4e1;
+  pointer-events:none;
+}
+
+.letter-card h3 {
+  font:italic 25px 'Playfair Display';
+  color:#a76e8c;
+  margin:5px 0 18px;
+}
+
+.letter-card p {
+  font:14px/2 'Playfair Display';
+  color:#77616f;
+  white-space:pre-line;
+}
+
+.seal {
+  width:42px;
+  height:42px;
+  background:#c887a4;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:white;
+  margin:0 auto 12px;
+  box-shadow:0 5px 12px #c887a455;
+}
+
+.hidden-letter {display:none}
+.hidden-letter.show {display:block;animation:appear .7s ease}
+
+@media(max-width:680px) {
+  .playlist-layout {grid-template-columns:1fr}
+  .player-art {height:120px}
+  .card {padding:27px 20px}
+  .section-foot {justify-content:center}
+  .letter-card {padding:25px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="floaties">
+  <span>♡</span>
+  <span>✦</span>
+  <span>✿</span>
+  <span>♡</span>
+</div>
+
+<main>
+
+<!-- WELCOME SCREEN -->
+
+<section class="screen active" id="welcome">
+ <div class="card">
+  <div class="eyebrow">a tiny delivery · just for you</div>
+
+  <h1>Psst... <em>you.</em></h1>
+
+  <p>
+   Excuse me, sir. You have a very important delivery.<br>
+   And no, you cannot return it. ♡
+  </p>
+
+  <div class="big-envelope" onclick="startQuiz()">
+   <div class="env-body"></div>
+   <div class="env-flap"></div>
+   <div class="env-heart">♥</div>
+  </div>
+
+  <button class="btn" onclick="startQuiz()">What's this? ♡</button>
+
+  <div class="tiny">
+   ♡ delivered with an unreasonable amount of affection
+  </div>
+ </div>
+</section>
+
+
+<!-- QUIZ SCREEN -->
+
+<section class="screen" id="quiz">
+ <div class="card">
+
+  <div class="eyebrow">
+   before we begin · one very serious question
+  </div>
+
+  <h2>Who's the luckiest<br><em>person today?</em></h2>
+
+  <p>Choose wisely. Your answer will be judged. 👀</p>
+
+  <div class="quiz-options">
+   <button class="btn secondary" onclick="answerQuiz('me')">
+    Me, obviously
+   </button>
+
+   <button class="btn secondary" onclick="answerQuiz('you')">
+    Your favourite person
+   </button>
+  </div>
+
+  <div class="quiz-result" id="quizResult"></div>
+
+  <div class="button-row">
+   <button class="btn" id="quizContinue"
+   style="display:none" onclick="showScreen('playlist')">
+    Okay, show me! →
+   </button>
+  </div>
+
+ </div>
+</section>
+
+
+<!-- PLAYLIST SCREEN -->
+
+<section class="screen" id="playlist">
+ <div class="card">
+
+  <div class="eyebrow">chapter one · a few songs for you</div>
+
+  <h2>Press play, <em>pretty boy.</em></h2>
+
+  <p>
+   Five songs, a few feelings, and absolutely no skips allowed.
+   (Okay, one skip. I'm generous.)
+  </p>
+
+  <div class="playlist-layout">
+
+   <div class="track-list">
+
+    <button class="track selected" onclick="playSong(0)">
+     <span class="track-num">01</span>
+     <span>
+      <strong>Najeek</strong>
+      <small>Bartika Eam Rai</small>
+     </span>
+     <span class="play">♫</span>
+    </button>
+
+    <button class="track" onclick="playSong(1)">
+     <span class="track-num">02</span>
+     <span>
+      <strong>Chemtrails Over the Country Club</strong>
+      <small>Lana Del Rey</small>
+     </span>
+     <span class="play">♫</span>
+    </button>
+
+    <button class="track" onclick="playSong(2)">
+     <span class="track-num">03</span>
+     <span>
+      <strong>About You</strong>
+      <small>The 1975</small>
+     </span>
+     <span class="play">♫</span>
+    </button>
+
+    <button class="track" onclick="playSong(3)">
+    <span class="track-num">04</span>
+    <span>
+        <strong>Iris</strong>
+        <small>The Goo Goo Dolls</small>
+    </span>
+    <span class="play">♫</span>
+</button>
+
+    <button class="track" onclick="playSong(4)">
+     <span class="track-num">05</span>
+     <span>
+      <strong>Lover</strong>
+      <small>Taylor Swift</small>
+     </span>
+     <span class="play">♡</span>
+    </button>
+
+   </div>
+
+   <div class="player">
+
+    <div class="player-art" id="playerArt">🌷</div>
+
+    <div class="now-label">now playing · your tiny soundtrack</div>
+
+    <div class="now-title" id="nowTitle">Najeek</div>
+
+    <p class="player-note" id="songNote">
+     A little song for the moments when someone feels close,
+     even from far away.
+    </p>
+
+    <iframe
+     id="youtubePlayer"
+     src="https://www.youtube-nocookie.com/embed/AMRGmAh2NTk?autoplay=0&rel=0"
+     title="YouTube music player"
+     allow="autoplay; encrypted-media; picture-in-picture"
+     allowfullscreen>
+    </iframe>
+
+    <div class="hint">
+     Tap a song on the left to play it.
+     YouTube controls are inside the player.
+    </div>
+
+   </div>
+  </div>
+
+  <div class="section-foot">
+   <span class="progress">01 / 03 · THE SOUNDTRACK</span>
+
+   <button class="btn" onclick="showScreen('garden')">
+    I've listened enough ♡ →
+   </button>
+  </div>
+
+ </div>
+</section>
+
+
+<!-- FLOWER SCREEN -->
+
+<section class="screen" id="garden">
+ <div class="card">
+
+  <div class="eyebrow">chapter two · something is growing</div>
+
+  <h2>A bouquet, <em>for you.</em></h2>
+
+  <p>
+   These lilies are a little shy.
+   Give them some love to help them bloom.
+  </p>
+
+  <div class="bouquet-wrap">
+
+   <div class="bouquet" id="bouquet">
+
+    <div class="stems">
+     <i class="stem"></i>
+     <i class="stem"></i>
+     <i class="stem"></i>
+     <i class="stem"></i>
+     <i class="stem"></i>
+     <i class="leaf"></i>
+     <i class="leaf l2"></i>
+     <i class="leaf l3"></i>
+    </div>
+
+    <div class="flower f1">
+     <i class="petal"></i><i class="petal"></i>
+     <i class="petal"></i><i class="petal"></i>
+     <i class="petal"></i><i class="petal"></i>
+    </div>
+
+    <div class="flower f2">
+     <i class="petal"></i><i class="petal"></i>
+     <i class="petal"></i><i class="petal"></i>
+     <i class="petal"></i><i class="petal"></i>
+    </div>
+
+    <div class="flower f3">
+     <i class="petal"></i><i class="petal"></i>
+     <i class="petal"></i><i class="petal"></i>
+     <i class="petal"></i><i class="petal"></i>
+    </div>
+
+    <div class="flower f4">
+     <i class="petal"></i><i class="petal"></i>
+     <i class="petal"></i><i class="petal"></i>
+     <i class="petal"></i><i class="petal"></i>
+    </div>
+
+    <div class="flower f5">
+     <i class="petal"></i><i class="petal"></i>
+     <i class="petal"></i><i class="petal"></i>
+     <i class="petal"></i><i class="petal"></i>
+    </div>
+
+    <div class="wrap"></div>
+    <div class="ribbon"></div>
+    <div class="bow"></div>
+
+   </div>
+  </div>
+
+  <button class="btn" id="waterBtn" onclick="waterFlowers()">
+   Water the lilies ♡
+  </button>
+
+  <div class="water-count" id="waterCount">
+   Water them 3 times to help them bloom · 0 / 3
+  </div>
+
+  <div class="section-foot">
+   <span class="progress">02 / 03 · THE FLOWERS</span>
+
+   <button class="btn secondary" id="letterBtn"
+   style="display:none" onclick="showScreen('letter')">
+    One last thing... →
+   </button>
+  </div>
+
+ </div>
+</section>
+
+
+<!-- LETTER SCREEN -->
+
+<section class="screen" id="letter">
+ <div class="card">
+
+  <div class="eyebrow">chapter three · top secret</div>
+
+  <h2>For your eyes <em>only.</em></h2>
+
+  <p>
+   You've reached the final delivery.
+   Please open carefully. ♡
+  </p>
+
+  <div class="seal">♥</div>
+
+  <button class="btn" id="openLetterBtn" onclick="openLetter()">
+   Break the seal
+  </button>
+
+  <div class="hidden-letter" id="letterContent">
+
+   <div class="letter-card">
+
+    <div class="eyebrow">a little note from me</div>
+
+    <h3>Hiii lomllll ♡</h3>
+
+    <p>First of all, congratulations on making it to the end. You deserve an award for putting up with me, honestly. 😭
+
+I know I tease you a lot, annoy you a lot, and sometimes get mad at you for absolutely no reason (okay, don't start smiling, I know you know). And somehow, you're still here. Like??? What did I do to deserve you?
+
+But jokes aside, I really want to thank you for everything. For always being there, for giving me so much, for taking care of me, and for making sure I never feel like I'm missing anything. You do so many things for me, and I hope you know that I notice them, even the little ones. I might not always say it, but I appreciate you more than you know.
+
+Thank you for being patient with me, even when I'm being a little difficult. Thank you for loving me through all my moods, my random anger, my nonsense, and all the versions of me. I know I'm not always the easiest person to deal with, but you make me feel so loved, and I'm really grateful for that.
+
+I hope I make you as happy as you make me. And I hope you never doubt how much you mean to me.
+
+Anyway, enough of me being all soft. Don't get used to this. I'll go back to annoying you in approximately 5 minutes. 🤭
+
+I love you so so much, loml. Thank you for being you, and thank you for being mine. ♡
+
+<strong>Yours (unfortunately for you),</strong>
+Your favourite headache &lt;3</p>
+
+</div>
+
+   <p style="margin-top:20px">
+    P.S. If you smiled even once, my mission was successful. 😌
+   </p>
+
+  </div>
+
+  <div class="button-row">
+   <button class="btn ghost" onclick="showScreen('welcome')">
+    Replay the surprise ↺
+   </button>
+  </div>
+
+ </div>
+</section>
+
+</main>
+
+
+<script>
+
+const songs = [
+ {
+  title:"Najeek",
+  artist:"Bartika Eam Rai",
+  id:"AMRGmAh2NTk",
+  note:"A little song for the moments when someone feels close, even from far away."
+ },
+ {
+  title:"Chemtrails Over the Country Club",
+  artist:"Lana Del Rey",
+  id:"vBHild0PiTE",
+  note:"For dreamy drives, daydreams, and a little bit of cinematic romance."
+ },
+ {
+  title:"About You",
+  artist:"The 1975",
+  id:"tGv7CUutzqU",
+  note:"Some people just stay on your mind. This one felt right here."
+ },
+ {
+  title:"Iris",
+  artist:"The Goo Goo Dolls",
+  id:"NwFVSclD_uc",
+  note:"Because some feelings are impossible to put into words. ♡"
+ },
+ {
+  title:"Lover",
+  artist:"Taylor Swift",
+  id:"-BjZmE2gtdo",
+  note:"Saving this one for last. Obviously. ♡"
+ }
+];
+
+function showScreen(id) {
+ document.querySelectorAll('.screen').forEach(screen => {
+  screen.classList.remove('active');
+ });
+
+ document.getElementById(id).classList.add('active');
+
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function startQuiz() {
+ showScreen('quiz');
+}
+
+function answerQuiz(choice) {
+
+ const result = document.getElementById('quizResult');
+
+ result.textContent = choice === 'me'
+  ? "Correct. Look at you, being all confident. 😌"
+  : "Also correct. I was hoping you'd say that. ♡";
+
+ document.getElementById('quizContinue').style.display = 'inline-block';
+}
+
+function playSong(index) {
+
+ const song = songs[index];
+
+ document.querySelectorAll('.track').forEach((track,i) => {
+  track.classList.toggle('selected',i === index);
+ });
+
+ document.getElementById('nowTitle').textContent = song.title;
+
+ document.getElementById('songNote').textContent = song.note;
+
+ document.getElementById('youtubePlayer').src =
+  `https://www.youtube-nocookie.com/embed/${song.id}?autoplay=1&rel=0`;
+
+ const emojis = ['🌷','☁️','🌙','✨','💗'];
+
+ document.getElementById('playerArt').textContent = emojis[index];
+}
+
+let water = 0;
+
+function waterFlowers() {
+
+ if(water < 3) {
+  water++;
+ }
+
+ document.getElementById('waterCount').textContent =
+  water < 3
+   ? `Water them 3 times to help them bloom · ${water} / 3`
+   : "Look what you did. They're blooming just for you. ♡";
+
+ if(water >= 3) {
+
+  document.getElementById('bouquet').classList.add('bloomed');
+
+  document.getElementById('waterBtn').textContent = "You did it! ♡";
+
+  document.getElementById('waterBtn').disabled = true;
+
+  document.getElementById('letterBtn').style.display = 'inline-block';
+ }
+}
+
+function openLetter() {
+
+ document.getElementById('letterContent').classList.add('show');
+
+ document.getElementById('openLetterBtn').style.display = 'none';
+}
+
+</script>
+
+</body>
+</html>
