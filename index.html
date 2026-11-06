@@ -1141,9 +1141,6 @@ Spotify controls are inside the player.    </div>
     One last thing... ♡ →
   </button>
 </div>
-    One last thing... ♡ →
-   </button>
-  </div>
 
   <div class="tiny">made with lots and lots of love</div>
 
@@ -1280,7 +1277,31 @@ function answerQuiz(choice) {
 
  document.getElementById('quizContinue').style.display = 'inline-block';
 }
+let water = 0;
 
+function waterFlowers() {
+  const bouquet = document.getElementById('bouquet');
+  const count = document.getElementById('waterCount');
+  const button = document.getElementById('waterBtn');
+
+  if (water >= 3) return;
+
+  water++;
+
+  bouquet.classList.remove('watered');
+  void bouquet.offsetWidth;
+  bouquet.classList.add('watered');
+
+  if (water < 3) {
+    count.textContent = `A little more love... ${water}/3 💧`;
+    button.innerHTML = '💧 Water again';
+  } else {
+    count.textContent = "Look at that bouquet! All watered with love. ♡";
+    button.innerHTML = "All watered! ♡";
+    button.classList.add('watered');
+    button.disabled = true;
+  }
+}
 
  function openLetter() {
  document.getElementById('letterContent').classList.add('show');
