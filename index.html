@@ -570,12 +570,36 @@ p {
     inset -2px -3px 5px #c88fa844;
 }
 
-.petal:nth-child(1) {transform:rotate(0deg)}
-.petal:nth-child(2) {transform:rotate(60deg)}
-.petal:nth-child(3) {transform:rotate(120deg)}
-.petal:nth-child(4) {transform:rotate(180deg)}
-.petal:nth-child(5) {transform:rotate(240deg)}
-.petal:nth-child(6) {transform:rotate(300deg)}
+/* FLOWERS START AS CLOSED BUDS */
+
+.petal:nth-child(1) {
+  --angle: 0deg;
+}
+
+.petal:nth-child(2) {
+  --angle: 60deg;
+}
+
+.petal:nth-child(3) {
+  --angle: 120deg;
+}
+
+.petal:nth-child(4) {
+  --angle: 180deg;
+}
+
+.petal:nth-child(5) {
+  --angle: 240deg;
+}
+
+.petal:nth-child(6) {
+  --angle: 300deg;
+}
+
+.flower .petal {
+  transform: rotate(var(--angle)) scaleY(0.18);
+  transition: none;
+}
 
 /* Flower centres */
 
