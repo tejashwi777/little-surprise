@@ -773,42 +773,33 @@ p {
     overflow:hidden;
   }
 }
-/* FLOWERS BLOOM WHEN WATERED */
-.bouquet .flower {
-    transform-origin: bottom center;
+
+/* REAL FLOWER BLOOM ANIMATION */
+
+.bouquet.watered .flower .petal {
+  animation: petalOpen 1.2s cubic-bezier(.2,.8,.3,1.2) forwards;
 }
 
-.bouquet.watered .flower {
-    animation: flowerBloom 1s ease-out both;
+.bouquet.watered .flower .petal:nth-child(1) { animation-delay: 0s; }
+.bouquet.watered .flower .petal:nth-child(2) { animation-delay: .05s; }
+.bouquet.watered .flower .petal:nth-child(3) { animation-delay: .1s; }
+.bouquet.watered .flower .petal:nth-child(4) { animation-delay: .15s; }
+.bouquet.watered .flower .petal:nth-child(5) { animation-delay: .2s; }
+.bouquet.watered .flower .petal:nth-child(6) { animation-delay: .25s; }
+
+@keyframes petalOpen {
+  0% {
+    transform: rotate(var(--angle)) scaleY(.18);
+  }
+
+  65% {
+    transform: rotate(var(--angle)) scaleY(1.12);
+  }
+
+  100% {
+    transform: rotate(var(--angle)) scaleY(1);
+  }
 }
-
-@keyframes flowerBloom {
-    0% {
-        transform: scale(0.75);
-    }
-    50% {
-        transform: scale(1.18);
-    }
-    75% {
-        transform: scale(0.95);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-/* Little water sparkle animation */
-
-.bouquet.watered .flower {
-  animation: flowerBloom .8s ease both;
-}
-
-@keyframes flowerBloom {
-  0% { filter: brightness(1); }
-  50% { filter: brightness(1.25) drop-shadow(0 0 10px #f3c6d8); }
-  100% { filter: brightness(1); }
-}
-
 
 /* LOVE LETTER */
 
