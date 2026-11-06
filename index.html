@@ -971,8 +971,7 @@ function playSong(index) {
  document.getElementById('nowTitle').textContent = song.title;
  document.getElementById('songNote').textContent = song.note;
 
- const emojis = ['🌷', '☁️', '🌙', '✨', '💗'];
- document.getElementById('playerArt').textContent = emojis[index];
+const emojis = ['♡', '♪', '☾', '✧', '♡']; document.getElementById('playerArt').textContent = emojis[index];
 
  document.getElementById('spotifyPlayer').src =
   `https://open.spotify.com/embed/track/${spotifyTracks[index]}?utm_source=generator&theme=0`;
